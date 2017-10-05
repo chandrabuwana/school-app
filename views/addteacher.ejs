@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <a href="/">Back</a>
+    <thead>
+      <th>First-name</th>
+      <th>Last-name</th>
+      <th>Email</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <form action="/teacher/add" method="post">
+            <input type="text" name="first_name" placeholder="First Name">
+            <input type="text" name="last_name" placeholder="Last Name">
+            <input type="text" name="email" placeholder="Email">
+              <input type="submit" value="submit">
+          </form>
+          </td>
+      </tr>
+      <tr>
+        <%if(error){%>
+          <p><%=error.errors[0].message%></p>
+        <%}%>
+      </tr>
+      </p>
+    </tbody>
+  </body>
+</html>

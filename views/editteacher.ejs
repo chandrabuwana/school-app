@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <thead>
+      <th>First-name</th>
+      <th>Last-name</th>
+      <th>Email</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+            <form action="/teacher/edit/<%=dataTeacher.id%>" method="post">
+              <input type="text" name="first_name" value="<%=dataTeacher.first_name%>" placeholder="First Name">
+              <input type="text" name="last_name" value="<%=dataTeacher.last_name%>" placeholder="Last Name">
+              <input type="text" name="email" value="<%=dataTeacher.email%>" placeholder="Email">
+              <input type="submit" value="submit">
+          </form>
+          </td>
+      </tr>
+    </tbody>
+  </body>
+</html>
