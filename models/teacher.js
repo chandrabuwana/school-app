@@ -12,14 +12,15 @@ module.exports = function(sequelize, DataTypes) {
         }
       }
     },
-    createdAt: new Date(),
-    updatedAt: new Date()
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
-  });
+    SubjectId: DataTypes.INTEGER
+  })
+  Teacher.associate=function(models){
+    Teacher.belongsTo(models.Subject)
+    // Teacher.hasMany(models.Subject,{foreignKey:'SubjectId',sourceKey:'id'})
+  }
+  Teacher.prototype.fullname=function(){
+    return this.first_name+" "+this.last_name
+  }
+
   return Teacher;
 };

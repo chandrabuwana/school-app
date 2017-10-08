@@ -14,23 +14,34 @@
     <table border="2px">
       <thead>
         <th>ID</th>
+        <th>Subjectid</th>
         <th>FIRST NAME</th>
         <th>LAST NAME</th>
+        <th>FULL NAME</th>
         <th>EMAIL</th>
+        <th>Subject Name</th>
         <th>ACTION</th>
       </thead>
       <tbody>
         <%dataTeacher.forEach(dataT=>{%>
-          <tr>
-            <td><%=dataT.id%></td>
-            <td><%=dataT.first_name%></td>
-            <td><%=dataT.last_name%></td>
-            <td><%=dataT.email%></td>
-            <td>
-            <a href="/teacher/add">Add</a>
-            <a href="/teacher/edit/<%=dataT.id%>">Edit</a>
-            <a href="/teacher/delete/<%=dataT.id%>">delete</a></td>
-          </tr>
+            <tr>
+              <td><%=dataT.id%></td>
+              <td><%=dataT.SubjectId%></td>
+              <td><%=dataT.first_name%></td>
+              <td><%=dataT.last_name%></td>
+              <td><%=dataT.fullname()%></td>
+              <td><%=dataT.email%></td>
+              <%if(dataT.subject_name){%>
+              <td><%=dataT.subject_name%></td>
+              <%}else{%>
+                <td>Assigned</td>
+              <%}%>
+
+              <td>
+                <a href="/teacher/add">Add</a>
+                <a href="/teacher/edit/<%=dataT.id%>">Edit</a>
+                <a href="/teacher/delete/<%=dataT.id%>">delete</a></td>
+              </tr>
         <%})%>
       </tbody>
     </table>

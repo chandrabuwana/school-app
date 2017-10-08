@@ -3,10 +3,12 @@ const router=express.Router()
 const model=require('../models')
 
 router.get('/',(req,res)=>{
-  model.Subject.findAll()
+  model.Subject.findAll({
+    include:[{model:model.Teacher}]
+  })
   .then(dataSubject=>{
-    // res.send(dataSubject)
-    res.render('subject',{dataSubject:dataSubject})
+// res.render('subject',{dataSubject:dataSubject})
+    res.send(dataSubject[0].Teachers)
   })
   .catch(err=>{
     res.send(err)
