@@ -6,8 +6,19 @@
   </head>
   <body>
     <h3>Sekolah Odong Odong</h3>
+
+      <%if(dataMenu == 'headmaster'){%>
+
     <a href="/subject">Subject</a>
     <a href="/teacher">Teacher</a>
     <a href="/student">Student</a>
+      <%}else if(dataMenu== 'academic'){%>
+    <a href="/subject">Subject</a>
+    <a href="/student">Student</a>
+      <%}else if(dataMenu == 'teacher'){%>
+    <a href="/teacher">Teacher</a>
+      <%}%>
+  
+    <a href="/logout">Logout</a>
   </body>
 </html>

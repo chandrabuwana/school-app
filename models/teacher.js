@@ -8,15 +8,15 @@ module.exports = function(sequelize, DataTypes) {
       validate:{
         isEmail:{
           args:true,
-          msg:"Formatnya benerin COK"
+          msg:"Formatnya benerin"
         }
       }
     },
     SubjectId: DataTypes.INTEGER
   })
   Teacher.associate=function(models){
-    Teacher.belongsTo(models.Subject)
-    // Teacher.hasMany(models.Subject,{foreignKey:'SubjectId',sourceKey:'id'})
+    Teacher.belongsTo(models.Subject,{foreignKey:'SubjectId'})
+    // Teacher.hasMany(models.Subject,,sourceKey:'id'})
   }
   Teacher.prototype.fullname=function(){
     return this.first_name+" "+this.last_name

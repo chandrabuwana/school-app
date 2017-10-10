@@ -7,7 +7,7 @@
   <body>
     <h3>Subject</h3>
     <a href="/">Back</a>
-    <table border="2px">
+    <table>
       <thead>
         <th>ID</th>
         <th>Subject</th>
@@ -15,21 +15,23 @@
         <th>Action</th>
       </thead>
       <tbody>
-        <%for(var i=0;i < dataSubject.length;i++){%>
-          <tr>
-            <td><%=dataSubject[i].id%></td>
-            <td><%=dataSubject[i].subject_name%></td>
-            <td><%=dataSubject[i].Teachers.first_name%></td>
-
-            <td>
-              <a href="/subject/add">Add</a>
-            <a href="/subject/edit/:id">Edit</a>
-            <a href="/subject/delete/:id">Delete</a>
-          </td>
+      <%for(var i=0;i < dataSubject.length;i++){%>
+        <tr>
+          <td><%=dataSubject[i].id%></td>
+          <td><%=dataSubject[i].subject_name%></td>
+          <%for(var j=0;j < dataSubject.length;j++){%>
+            <td><%=dataSubject[i].Teachers[j].fullname()%>
+            </td>
+              <%}%>
           </tr>
-          <%}%>
+          <tr>
+            <td>
+              <a href="/subject/<%=dataSubject[i].id%>/enrolled">Enrolled Student</a>
+            </td>
+            <%}%>
+          </tr>
+        </tr>
       </tbody>
     </table>
-
   </body>
 </html>

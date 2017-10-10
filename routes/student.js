@@ -31,6 +31,28 @@ router.post('/add',(req,res)=>{
   })
 })
 
+router.get('/addsubject/:id',(req,res)=>{
+  model.Student.findById(req.params.id)
+  .then(dataStudent=>{
+    model.Subject.findAll()
+    .then(dataSubject=>{
+      // res.send(dataSubject)
+      res.render('addsubject',{dataSubject:dataSubject,dataStudent:dataStudent})
+    })
+  })
+})
+
+router.post('/addsubject/:id',(req,res)=>{
+  model.StudentSubject.create({
+    StudentId:req.params.id,
+    SubjectId:req.body.subject_name
+  })
+    .then(()=>{
+      res.redirect('/student')
+      // res.send(data)
+  })
+})
+
 router.get('/edit/:id',(req,res)=>{
   model.Student.findAll({
     where:{id:req.params.id}

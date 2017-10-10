@@ -43,7 +43,6 @@ router.get('/',(req,res)=>{
              })
           })
         })
-
         Promise.all(promise)
          .then(teachers => {
            res.render('teacher', {dataTeacher:teachers,error:err})
@@ -63,7 +62,6 @@ router.post('/add',(req,res)=>{
     first_name:req.body.first_name,
     last_name:req.body.last_name,
     email:req.body.email
-
   })
   .then(()=>{
     // if(subject_name== null){

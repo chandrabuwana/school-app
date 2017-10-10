@@ -5,6 +5,7 @@
     <title></title>
   </head>
   <body>
+    <a href="/">back to Home</a>
     <table>
       <h3>student</h3>
       <thead>
@@ -13,6 +14,8 @@
         <th>Last Name</th>
         <th>Full Name</th>
         <th>Email</th>
+        <th>Subject Name</th>
+
         <th>Action</th>
       </thead>
       <tbody>
@@ -23,8 +26,10 @@
             <td><%=data.last_name%></td>
             <td><%=data.fullname()%></td>
             <td><%=data.email%></td>
+            <td><%=data.subject_name%></td>
             <td>
-              <a href="/student/add">Add</a>
+              <a href="/student/add">Add Student</a>
+              <a href="/student/addsubject/<%=data.id%>">Add Subject</a>
               <a href="/student/edit/<%=data.id%>">Edit</a>
               <a href="/student/delete/<%=data.id%>">Delete</a>
             </td>

@@ -11,9 +11,13 @@ module.exports = function(sequelize, DataTypes) {
            msg:"Format Email tidak Benar"
          }
        }
-    },createdAt:new Date(),
-    updatedAt:new Date()
+    }
   });
+  
+  Student.associate=function(models){
+    Student.belongsToMany(models.Subject,{through:'StudentSubject'})
+    Student.hasMany(models.StudentSubject,{foreignKey:'SubjectId'})
+  }
   Student.prototype.fullname=function(){
     return this.first_name+" "+this.last_name
   }
